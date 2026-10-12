@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="theme-color" content="#0a0e1a">
+  <title>PS3 Guide — Install PS2 Classics (CFW/HEN)</title>
+  <meta name="description" content="Complete tutorial: install your PS2 Classics (official games and mods) on PS3 CFW/HEN via USB, FTP and webMAN MOD.">
+  <meta name="author" content="PS3 Revival Community">
+
+  <link rel="manifest" href="../../site.manifest">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="PS2 Classics Tutorial">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="PS3 Guide — Install PS2 Classics (CFW/HEN)">
+  <meta property="og:description" content="Complete tutorial to install your PS2 Classics on a modded PS3.">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:locale:alternate" content="fr_FR">
+
+  <link rel="alternate" hreflang="fr" href="../../index.html">
+  <link rel="alternate" hreflang="en" href="./en.html">
+
+  <link rel="icon" type="image/x-icon" href="../icon/favicon.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="../icon/favicon-16x16.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="../icon/favicon-32x32.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="../icon/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="../icon/android-chrome-192x192.png">
+  <link rel="icon" type="image/png" sizes="512x512" href="../icon/android-chrome-512x512.png">
+
+  <link rel="stylesheet" href="../style/style.css">
+</head>
+<body id="top">
+
+  <img src="../image/me7.png" alt="" aria-hidden="true" id="bouncingImage" class="bouncing-image">
+
+  <div class="bg-layer" aria-hidden="true">
+    <div class="bg-grid"></div>
+    <div class="bg-orb bg-orb--1"></div>
+    <div class="bg-orb bg-orb--2"></div>
+    <div class="bg-orb bg-orb--3"></div>
+  </div>
+
+  <div class="scroll-progress" aria-hidden="true"><span id="scrollProgressBar"></span></div>
+
+  <header class="site-header" id="siteHeader">
+    <div class="header-inner">
+      <button class="menu-toggle" id="menuToggle" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+
+      <a href="#top" class="brand" aria-label="Back to top">
+        <span class="brand-badge">PS3</span>
+        <span class="brand-text">PS3 — PS2 Classics<span class="brand-dot"> . </span>Guide</span>
+      </a>
+
+      <div class="header-actions">
+        <span class="status-pill" title="Status indicator">
+          <span class="status-dot"></span> Tutorial active
+        </span>
+
+        <div class="lang-switch" role="group" aria-label="Language / Langue">
+          <a href="../../index.html" class="lang-btn" aria-label="Français" hreflang="fr">FR</a>
+          <span class="lang-btn is-active" aria-current="page" aria-label="English">EN</span>
+        </div>
+
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme" aria-pressed="false">
+          <span class="theme-toggle__track">
+            <span class="theme-toggle__thumb">
+              <svg class="ico-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+              <svg class="ico-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+            </span>
+          </span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <aside class="sidebar" id="sidebar" aria-label="Main navigation">
+    <nav class="sidebar-inner">
+      <p class="sidebar-label">Contents</p>
+      <ul class="nav-list">
+        <li><a href="#intro" class="nav-link"><span class="nav-bullet"></span>Introduction</a></li>
+        <li><a href="#prerequis" class="nav-link"><span class="nav-bullet"></span>Prerequisites</a></li>
+        <li><a href="#methode-1-usb" class="nav-link"><span class="nav-bullet"></span>Method 1: USB</a></li>
+        <li><a href="#methode-2-ftp" class="nav-link"><span class="nav-bullet"></span>Method 2: FTP</a></li>
+        <li><a href="#webman" class="nav-link"><span class="nav-bullet"></span>Launch via webMAN</a></li>
+        <li><a href="#mods-dbz" class="nav-link"><span class="nav-bullet"></span>Dragon Ball Z Mods</a></li>
+        <li><a href="#klicensee" class="nav-link"><span class="nav-bullet"></span>klicensee Licenses</a></li>
+        <li><a href="#pkgi" class="nav-link"><span class="nav-bullet"></span>PKGi Store</a></li>
+        <li><a href="#depannage" class="nav-link"><span class="nav-bullet"></span>Troubleshooting</a></li>
+        <li><a href="#ressources" class="nav-link"><span class="nav-bullet"></span>Resources</a></li>
+      </ul>
+      <div class="sidebar-foot">
+        <span class="sidebar-foot__label">Tip</span>
+        <p>Click any <code>path</code> or <code>DNS</code> to copy it.</p>
+      </div>
+    </nav>
+  </aside>
+  <div class="sidebar-backdrop" id="sidebarBackdrop" hidden></div>
+
+  <main class="content" id="content">
+
+    <!-- INTRO -->
+    <section id="intro" class="section">
+      <header class="section-head">
+        <span class="section-tag">01</span>
+        <h1 class="section-title">Complete Guide: Install Your PS2 Classics on PS3 CFW/HEN</h1>
+      </header>
+      <div class="section-body">
+        <p>This tutorial guides you step-by-step through installing <strong>PS2 Classics</strong> on a modified PlayStation 3 (CFW or HEN). Whether you use a USB drive or FTP, every method is detailed with exact commands and paths to follow.</p>
+
+        <div class="callout callout--info">
+          <div class="callout__icon">ℹ️</div>
+          <div class="callout__content">
+            <p><strong>Important</strong>: This guide applies to PS3 consoles running <strong>CFW (Custom Firmware)</strong> and <strong>HEN (Homebrew Enabler)</strong>.<br>
+            CFW offers a simpler method (unencrypted ISO in <code>PS2ISO</code>), while HEN requires conversion to PKG.</p>
+          </div>
+        </div>
+
+        <div class="callout callout--accent">
+          <div class="callout__icon">🔄</div>
+          <div class="callout__content">
+            <p><strong>Update</strong>: This guide includes methods for <strong>official PS2 Classics games</strong> and <strong>mods</strong> (like the Dragon Ball Z versions). Download links for the mods are provided in the dedicated section.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PREREQUIS -->
+    <section id="prerequis" class="section">
+      <header class="section-head">
+        <span class="section-tag">02</span>
+        <h2 class="section-title">Essential Prerequisites</h2>
+      </header>
+      <div class="section-body">
+        <p>Before you start, make sure you have:</p>
+        <ul class="checklist">
+          <li>A modified PS3: <strong>CFW (Evilnat, Rebug, etc.)</strong> or <strong>PS3HEN enabled</strong>.</li>
+          <li>A <code>.pkg</code> file of a PS2 Classics game (or a PS2 ISO to convert).</li>
+          <li>A USB drive formatted in <strong>FAT32</strong> (or <strong>NTFS</strong> for large files &gt; 4 GB).</li>
+          <li>A PC with <a href="https://www.psx-place.com/resources/ps2-classics-gui.638/" target="_blank" rel="noopener">PS2 Classics GUI</a> (if you convert your own ISOs).</li>
+          <li>The <strong>PS2 Classics Placeholder</strong> installed (for HEN).</li>
+        </ul>
+
+        <div class="callout callout--warn">
+          <div class="callout__icon">⚠️</div>
+          <div class="callout__content">
+            <p><strong>HEN Reminder</strong>: On PS3HEN, you must <strong>enable HEN</strong> before each session. Without it, PS2 Classics games will not launch.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- METHODE 1 : USB -->
+    <section id="methode-1-usb" class="section">
+      <header class="section-head">
+        <span class="section-tag">03</span>
+        <h2 class="section-title">Method 1: Installation via USB Drive (Simple)</h2>
+      </header>
+      <div class="section-body">
+        <p>This is the most direct method. It involves placing the <code>.pkg</code> file on a USB drive, then installing it from the XMB.</p>
+
+        <h3 class="sub-title">Step 1: Prepare the USB Drive</h3>
+        <ol class="steps">
+          <li>Format your USB drive in <strong>FAT32</strong> (or <strong>NTFS</strong> if the <code>.pkg</code> file exceeds 4 GB).</li>
+          <li>At the root of the drive, create a folder named <code>PKG</code> (in uppercase).</li>
+          <li>Copy the <code>.pkg</code> file into this <code>PKG</code> folder.</li>
+        </ol>
+
+        <h3 class="sub-title">Step 2: Install from the PS3</h3>
+        <ol class="steps">
+          <li>Insert the USB drive into a PS3 port.</li>
+          <li>On the XMB, go to <strong>Game &gt; Package Manager &gt; Install Package Files</strong>.</li>
+          <li>Select <strong>USB Storage Device</strong> (or the name of your drive).</li>
+          <li>Navigate to the <code>PKG</code> folder and select the <code>.pkg</code> file.</li>
+          <li>Press <strong>X</strong> to install.</li>
+          <li>Once installation is complete, the game appears in the <strong>Game</strong> column of the XMB.</li>
+        </ol>
+
+        <div class="callout callout--tip">
+          <div class="callout__icon">💡</div>
+          <div class="callout__content">
+            <p><strong>Tip</strong>: For very large files, use an <strong>NTFS</strong> drive. FAT32 is limited to 4 GB per file.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- METHODE 2 : FTP -->
+    <section id="methode-2-ftp" class="section">
+      <header class="section-head">
+        <span class="section-tag">04</span>
+        <h2 class="section-title">Method 2: Installation via FTP (Advanced)</h2>
+      </header>
+      <div class="section-body">
+        <p>Ideal for large files or if you don't want to use a USB drive. You transfer the PKG directly to the PS3's hard drive.</p>
+
+        <h3 class="sub-title">Step 1: Configure the FTP Server on PS3</h3>
+        <ol class="steps">
+          <li>Make sure <strong>webMAN MOD</strong> or <strong>multiMAN</strong> is running (it enables the FTP server).</li>
+          <li>Note your PS3's IP address (visible in <strong>Settings &gt; Network Settings &gt; Connection Status</strong>).</li>
+        </ol>
+
+        <h3 class="sub-title">Step 2: Transfer the File with FileZilla</h3>
+        <ol class="steps">
+          <li>Open <strong>FileZilla</strong> on your PC.</li>
+          <li>In the top fields, enter:
+            <ul>
+              <li><strong>Host</strong>: <code class="dns">192.168.1.70</code> (your PS3's IP)</li>
+              <li><strong>Username</strong>: <code class="dns">root</code></li>
+              <li><strong>Password</strong>: (blank by default)</li>
+              <li><strong>Port</strong>: <code class="dns">21</code></li>
+            </ul>
+          </li>
+          <li>Click <strong>Quickconnect</strong>.</li>
+          <li>In the right pane (PS3), navigate to <code>/dev_hdd0/packages/</code>.</li>
+          <li>In the left pane (your PC), locate your <code>.pkg</code> file.</li>
+          <li><strong>Drag and drop</strong> the file into the <code>packages</code> folder.</li>
+          <li>Wait for the transfer to finish.</li>
+        </ol>
+
+        <div class="callout callout--warn">
+          <div class="callout__icon">⚠️</div>
+          <div class="callout__content">
+            <p><strong>Important</strong>: Make sure the transfer mode is set to <strong>Binary</strong> (menu <strong>Transfer &gt; Transfer Type &gt; Binary</strong>). An ASCII transfer will corrupt the file.</p>
+          </div>
+        </div>
+
+        <h3 class="sub-title">Step 3: Install from the XMB</h3>
+        <ol class="steps">
+          <li>On the PS3, go to <strong>Game &gt; Package Manager &gt; Install Package Files</strong>.</li>
+          <li>Select <strong>System Storage</strong> (the internal hard drive).</li>
+          <li>The <code>.pkg</code> file appears in the list. Select it and press <strong>X</strong>.</li>
+          <li>Confirm the installation and wait for it to finish.</li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- WEBMAN -->
+    <section id="webman" class="section">
+      <header class="section-head">
+        <span class="section-tag">05</span>
+        <h2 class="section-title">Launch via webMAN MOD (Recommended)</h2>
+      </header>
+      <div class="section-body">
+        <p>webMAN MOD is the ideal tool for managing and launching your PS2 Classics. It provides quick access to the game library and allows mounting ISOs.</p>
+
+        <h3 class="sub-title">Install webMAN MOD</h3>
+        <ol class="steps">
+          <li>Download the latest <code>webMAN_MOD_[version]_Installer.pkg</code> from the <a href="https://github.com/aldostools/webMAN-MOD/releases" target="_blank" rel="noopener">GitHub releases page</a>.</li>
+          <li>Install it via the USB or FTP method explained above.</li>
+          <li>After installation, launch the <strong>webMAN MOD</strong> icon from the XMB.</li>
+        </ol>
+
+        <h3 class="sub-title">Launch a PS2 Classics Game</h3>
+        <ol class="steps">
+          <li>Open <strong>webMAN MOD</strong> (via XMB or the web interface).</li>
+          <li>Navigate to the <strong>Games &gt; PlayStation 2</strong> section (or <strong>PS2 Classics</strong>).</li>
+          <li>Select your game from the list. webMAN will mount it automatically.</li>
+          <li>The game will launch like a normal PS3 game.</li>
+        </ol>
+
+        <div class="callout callout--info">
+          <div class="callout__icon">ℹ️</div>
+          <div class="callout__content">
+            <p><strong>Web Access</strong>: You can also manage your PS3 from a PC browser by typing <code>http://[PS3-IP]/</code>.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- MODS DBZ -->
+    <section id="mods-dbz" class="section">
+      <header class="section-head">
+        <span class="section-tag">06</span>
+        <h2 class="section-title">Dragon Ball Z Mods (Budokai Tenkaichi 3)</h2>
+      </header>
+      <div class="section-body">
+        <p>The <strong>Dragon Ball Z: Budokai Tenkaichi 3</strong> mods are modified versions of the PS2 game, converted to PKG for PS3. They add new characters, transformations, and adjust gameplay.</p>
+
+        <h3 class="sub-title">Available Mods</h3>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Mod</th><th>Description</th><th>ID</th><th>Link</th></tr></thead>
+            <tbody>
+              <tr>
+                <td><strong>CANON v4 UPDATE</strong></td>
+                <td>Canon-faithful version: characters, transformations, and adjustments to match the anime/manga.</td>
+                <td><code>SLUS99190</code></td>
+                <td><a href="https://kizeorepositoriospkg.blogspot.com/" target="_blank" rel="noopener">Kizeo Blog</a></td>
+              </tr>
+              <tr>
+                <td><strong>SUPER MAX v7</strong></td>
+                <td>Fan-service oriented version: large roster of characters, transformations, and additional costumes.</td>
+                <td><code>SLUS99139</code></td>
+                <td><a href="https://kizeorepositoriospkg.blogspot.com/" target="_blank" rel="noopener">Kizeo Blog</a></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="callout callout--tip">
+          <div class="callout__icon">💡</div>
+          <div class="callout__content">
+            <p><strong>Note</strong>: These mods use <strong>custom IDs</strong> (<code>SLUS99190</code>, <code>SLUS99139</code>) that differ from the official game ID (<code>SLUS-21678</code>). This allows you to install <strong>multiple mods side by side</strong> without them overwriting each other.</p>
+          </div>
+        </div>
+
+        <h3 class="sub-title">Installing the Mods</h3>
+        <p>Follow the exact same steps as for a standard PS2 Classics game:</p>
+        <ol class="steps">
+          <li>Download the <code>.pkg</code> file from the corresponding link.</li>
+          <li>Install it via <strong>USB</strong> or <strong>FTP</strong> (see sections 3 and 4).</li>
+          <li>The mod will appear in the XMB under its name (e.g., "CANON v4" or "SUPER MAX v7").</li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- KLICENSEE -->
+    <section id="klicensee" class="section">
+      <header class="section-head">
+        <span class="section-tag">07</span>
+        <h2 class="section-title">klicensee Licenses — Understanding and Obtaining Keys</h2>
+      </header>
+      <div class="section-body">
+        <p><strong>PS2 Classics</strong> games are not simple ISOs: they are encrypted PKGs that require a <strong>digital license key</strong> called <code>klicensee</code> to be unlocked. Without this key, the PS3 will refuse to launch the game.</p>
+
+        <h3 class="sub-title">🔑 What is klicensee?</h3>
+        <p>The <code>klicensee</code> is a <strong>unique license key</strong> that allows decrypting the content of a PS2 Classics game. Two <strong>very different cases</strong> must be distinguished:</p>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr><th>Game Type</th><th>Source</th><th>klicensee</th></tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Official PSN Games</strong></td>
+                <td>Purchased on the PlayStation Store (or obtained via NoPayStation)</td>
+                <td><strong>Unique per game</strong> — stored in the <code>ISO.BIN.EDAT</code> file inside the PKG</td>
+              </tr>
+              <tr>
+                <td><strong>Community-created games</strong></td>
+                <td>Converted by yourself (PS2 Classics GUI) or by modders</td>
+                <td><strong>Generic and universal</strong> for all games (see below)</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="callout callout--accent">
+          <div class="callout__icon">🔑</div>
+          <div class="callout__content">
+            <p><strong>Universal generic key</strong> (for community-created games):</p>
+            <p><code class="dns">E4E54FD67C16C316F47829A30484D843</code></p>
+            <p>This key is used by default in <strong>PS2 Classics GUI</strong> and by most mods. It works on all CFW/HEN PS3 consoles.</p>
+          </div>
+        </div>
+
+        <div class="callout callout--info">
+          <div class="callout__icon">ℹ️</div>
+          <div class="callout__content">
+            <p><strong>Structure of an official PS2 Classics PKG:</strong></p>
+            <ul>
+              <li><code>ISO.BIN.EDAT</code> — the PS2 game ISO <strong>encrypted</strong> with the klicensee.</li>
+              <li><code>PARAM.SFO</code> — metadata (title, ID, category).</li>
+              <li><code>ICON0.PNG</code> — the game icon in the XMB.</li>
+              <li>The <strong>Placeholder</strong> (separate): <code>[PS2U10000]_PS2_Classics_Placeholder.pkg</code>.</li>
+            </ul>
+            <p>The klicensee is used to <strong>decrypt the <code>ISO.BIN.EDAT</code></strong> at launch time. This is why each official game has its own key.</p>
+          </div>
+        </div>
+
+        <h3 class="sub-title">📥 Where to find official PS2 Classics games?</h3>
+        <p>Official PS2 Classics games are distributed as encrypted PKGs. Here are the most reliable community-used sources:</p>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr><th>Source</th><th>Description</th><th>Link</th></tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>NoPayStation</strong></td>
+                <td>The most complete community repository: over <strong>2,000 PKGs</strong> for PS3, PSP, PS Vita, including many official PS2 Classics. Provides the <code>.pkg</code> files and their associated <code>.rap</code> files.</td>
+                <td><a href="https://nopaystation.com/" target="_blank" rel="noopener">nopaystation.com</a></td>
+              </tr>
+              <tr>
+                <td><strong>DLPSGame (PS2)</strong></td>
+                <td>Site offering PS2 game downloads in <strong>ISO</strong> format. The ISOs can then be converted to PKG with PS2 Classics GUI.</td>
+                <td><a href="https://dlpsgame.com/category/ps2/" target="_blank" rel="noopener">dlpsgame.com/category/ps2</a></td>
+              </tr>
+              <tr>
+                <td><strong>PSX-Place (forum)</strong></td>
+                <td>Technical reference forum for PS3. Members share extraction tools and klicensee databases.</td>
+                <td><a href="https://www.psx-place.com/" target="_blank" rel="noopener">psx-place.com</a></td>
+              </tr>
+              <tr>
+                <td><strong>Kizeo Blog</strong></td>
+                <td>Blog specialized in PS3 PKGs: PS2 Classics games, mods, themes. Many Mega links for Dragon Ball Z mods.</td>
+                <td><a href="https://kizeorepositoriospkg.blogspot.com/" target="_blank" rel="noopener">kizeorepositoriospkg.blogspot.com</a></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="callout callout--tip">
+          <div class="callout__icon">💡</div>
+          <div class="callout__content">
+            <p><strong>NoPayStation tip</strong>: Use the <strong>NPS Browser</strong> client to download PKGs and their <code>.rap</code> files automatically. The <code>.rap</code> files can then be converted to klicensee with the <code>rap2klicensee</code> tool.</p>
+          </div>
+        </div>
+
+        <h3 class="sub-title">🛠️ How to obtain the klicensee of an official game?</h3>
+        <p>Three main methods exist, depending on what you have:</p>
+
+        <h4 class="sub-sub-title">Method 1: Extraction from the PKG with PS2 Classics GUI</h4>
+        <p>This is the simplest method if you already have the official PKG.</p>
+        <ol class="steps">
+          <li>Download and launch <a href="https://www.psx-place.com/resources/ps2-classics-gui.638/" target="_blank" rel="noopener">PS2 Classics GUI</a> on your PC.</li>
+          <li>Open the <strong>"Decrypt"</strong> tab.</li>
+          <li>Select your official <code>.pkg</code> file.</li>
+          <li>Enter the klicensee (if you already have it) <strong>or</strong> click <strong>"Get klicensee from RAP"</strong> if you have the associated <code>.rap</code> file.</li>
+          <li>Start the decryption: the software extracts the decrypted PS2 ISO to the folder of your choice.</li>
+        </ol>
+
+        <h4 class="sub-sub-title">Method 2: Extraction from a RAP file</h4>
+        <p>If you have the <code>.rap</code> (Sony license file) but not the klicensee, use a converter.</p>
+        <ol class="steps">
+          <li>Get the <code>.rap</code> file corresponding to the game (provided with the PKG on NoPayStation).</li>
+          <li>Download the <code>rap2klicensee.exe</code> tool (available on PSX-Place or in the Aldostools toolbox).</li>
+          <li>Place the <code>.rap</code> in the same folder as the tool.</li>
+          <li>Run the command:
+            <pre class="diagram">rap2klicensee.exe my_game.rap</pre>
+          </li>
+          <li>The tool displays the corresponding klicensee (32 hexadecimal characters).</li>
+        </ol>
+
+        <h4 class="sub-sub-title">Method 3: Community klicensee database</h4>
+        <p>The community maintains public klicensee lists for the most common PS2 Classics games.</p>
+        <ul>
+          <li><strong>PSX-Place</strong>: "PS3 PS2 Classics" section of the forum — many topics share klicensee lists.</li>
+          <li><strong>GitHub</strong>: search for <code>ps2-classics-klicensee</code> or <code>klicensee-database</code> — several repositories maintain <code>.txt</code> files with the keys.</li>
+          <li><strong>PS3 Scene Discord</strong>: servers like "PS3 Homebrew" or "PS3 Scene" have dedicated channels where keys circulate.</li>
+        </ul>
+
+        <div class="callout callout--warn">
+          <div class="callout__icon">⚠️</div>
+          <div class="callout__content">
+            <p><strong>Important</strong>: The klicensee is <strong>specific to each official game</strong>. Never reuse a klicensee from another game — the PS3 would refuse to launch the PKG.</p>
+          </div>
+        </div>
+
+        <h3 class="sub-title">📋 Quick summary</h3>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr><th>Need</th><th>Tool / Source</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Create a PKG from a PS2 ISO</td><td><a href="https://www.psx-place.com/resources/ps2-classics-gui.638/" target="_blank" rel="noopener">PS2 Classics GUI</a> (generic klicensee used automatically)</td></tr>
+              <tr><td>Decrypt an official PKG</td><td>PS2 Classics GUI + game klicensee</td></tr>
+              <tr><td>Extract a klicensee from a RAP</td><td><code>rap2klicensee.exe</code></td></tr>
+              <tr><td>Find an official klicensee</td><td>PSX-Place, GitHub, PS3 Scene Discord</td></tr>
+              <tr><td>Download PS2 Classics games</td><td><a href="https://nopaystation.com/" target="_blank" rel="noopener">NoPayStation</a></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- PKGI -->
+    <section id="pkgi" class="section">
+      <header class="section-head">
+        <span class="section-tag">08</span>
+        <h2 class="section-title">PKGi Store — Download PKGs Directly on PS3</h2>
+      </header>
+      <div class="section-body">
+        <p><strong>PKGi PS3</strong> is a homebrew that allows you to download and install <code>.pkg</code> files directly on your PS3, without using a PC. It is the ideal tool to retrieve PS2 Classics games from community repositories like <strong>NoPayStation</strong> or custom configurations.</p>
+
+        <div class="callout callout--info">
+          <div class="callout__icon">ℹ️</div>
+          <div class="callout__content">
+            <p><strong>PKGi only handles <code>.pkg</code> files</strong>. It does <strong>not</strong> download raw PS2 ISOs. For those, use webMAN MOD (ISO in <code>/dev_hdd0/PS2ISO/</code>) or convert them with PS2 Classics GUI.</p>
+          </div>
+        </div>
+
+        <h3 class="sub-title">Installing PKGi</h3>
+        <ol class="steps">
+          <li>Download the latest <code>pkgi-ps3.pkg</code> from the <a href="https://github.com/bucanero/pkgi-ps3/releases" target="_blank" rel="noopener">GitHub releases page</a>.</li>
+          <li>Install it via the USB or FTP method explained above.</li>
+          <li>Launch the <strong>PKGi</strong> icon from the XMB (Network column).</li>
+        </ol>
+
+        <h3 class="sub-title">Configuring PKGi with NoPayStation</h3>
+        <p>To download games from NoPayStation, you need to provide PKGi with a <code>pkgi.txt</code> file containing the game list.</p>
+        <ol class="steps">
+          <li>Get the <code>pkgi.txt</code> file provided by NoPayStation (or download HERE : <a href="https://github.com/Septieme7/PS3-PKGI-1.30" target="_blank" rel="noopener"><strong>https://github.com/Septieme7/PS3-PKGI-1.30</strong></a> with *.txt).</li>
+          <li>Transfer it to the <code>/dev_hdd0/game/NP00PKGI3/USRDIR/</code> folder on your PS3 (via FTP or USB).</li>
+          <li>Launch PKGi and press <strong>Refresh</strong> to load the game list.</li>
+          <li>Browse the list, select a game and start the download: PKGi will install the <code>.pkg</code> automatically.</li>
+        </ol>
+
+        <div class="callout callout--tip">
+          <div class="callout__icon">💡</div>
+          <div class="callout__content">
+            <p><strong>Tip</strong>: PKGi can also load multiple databases: <code>pkgi_games.txt</code>, <code>pkgi_dlcs.txt</code>, <code>pkgi_themes.txt</code>, etc. The format is a simple CSV: <code>contentid,flags,name,description,rap,url,size,checksum</code>.</p>
+          </div>
+        </div>
+
+        <h3 class="sub-title">Advanced usage: custom store configuration</h3>
+        <p>You can point PKGi to any remote database by editing the <code>config.txt</code> file:</p>
+        <pre class="diagram">url http://www.mysite.com/mylist.csv
+url_demos http://www.mysite.com/demos.csv</pre>
+        <p>PKGi will download and synchronize these lists on the next <strong>Refresh</strong>.</p>
+      </div>
+    </section>
+
+    <!-- DEPANNAGE -->
+    <section id="depannage" class="section">
+      <header class="section-head">
+        <span class="section-tag">09</span>
+        <h2 class="section-title">Troubleshooting</h2>
+      </header>
+      <div class="section-body">
+        <h3 class="sub-title">Common Errors</h3>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Issue</th><th>Likely Cause</th><th>Solution</th></tr></thead>
+            <tbody>
+              <tr>
+                <td><code>80029513</code> — Invalid copyright information</td>
+                <td>Corrupted or improperly signed PKG.</td>
+                <td>Reinstall the PKG. Verify it is complete. On HEN, ensure HEN is enabled.</td>
+              </tr>
+              <tr>
+                <td><code>80010006</code> — Game won't launch</td>
+                <td>Missing PS2 Classics Placeholder (on HEN).</td>
+                <td>Install the <code>[PS2U10000]_PS2_Classics_Placeholder.pkg</code>.</td>
+              </tr>
+              <tr>
+                <td><code>80028F10</code> — Display issue</td>
+                <td>720p resolution conflict.</td>
+                <td>Disable 720p in <strong>Settings &gt; Display Settings &gt; Video Output Settings &gt; Custom</strong>.</td>
+              </tr>
+              <tr>
+                <td>Game freezes or crashes</td>
+                <td>Corrupted ISO or poorly built PKG.</td>
+                <td>Re-download the PKG. Try a different mod version. Check compatibility.</td>
+              </tr>
+              <tr>
+                <td>klicensee error / unreadable content</td>
+                <td>Wrong or missing license key.</td>
+                <td>Verify the klicensee matches the game. Re-extract it from the <code>.rap</code> if needed.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3 class="sub-title">Check Firmware Version</h3>
+        <p>To find your firmware: <strong>Settings &gt; System Settings &gt; System Information</strong>.</p>
+      </div>
+    </section>
+
+    <!-- RESSOURCES -->
+    <section id="ressources" class="section">
+      <header class="section-head">
+        <span class="section-tag">10</span>
+        <h2 class="section-title">Useful Resources</h2>
+      </header>
+      <div class="section-body">
+        <ul class="resource-list">
+          <li><a href="https://www.psx-place.com/resources/ps2-classics-gui.638/" target="_blank" rel="noopener"><strong>PS2 Classics GUI</strong>: PC tool to convert PS2 ISOs to PS3 PKG</a></li>
+          <li><a href="https://github.com/aldostools/webMAN-MOD/releases" target="_blank" rel="noopener"><strong>webMAN MOD</strong>: Game manager and universal launcher for PS3</a></li>
+          <li><a href="https://github.com/bucanero/pkgi-ps3" target="_blank" rel="noopener"><strong>PKGi PS3</strong>: PKG downloader directly on PS3 (GitHub)</a></li>
+          <li><a href="https://nopaystation.com/" target="_blank" rel="noopener"><strong>NoPayStation</strong>: Community repository for PS3 / PSP / PS Vita PKGs (including PS2 Classics)</a></li>
+          <li><a href="https://dlpsgame.com/category/ps2/" target="_blank" rel="noopener"><strong>DLPSGame (PS2)</strong>: PS2 games in ISO format (for conversion to PKG)</a></li>
+          <li><a href="https://kizeorepositoriospkg.blogspot.com/" target="_blank" rel="noopener"><strong>Kizeo Blog</strong>: Source of PS3 PKGs (mods, PS2 Classics games)</a></li>
+          <li><a href="https://consolemods.org/wiki/PS3:PS2_Games,_Multiplayer,_and_Fixes" target="_blank" rel="noopener"><strong>ConsoleMods.org</strong>: Complete guide to PS2 games on PS3</a></li>
+          <li><a href="https://www.psx-place.com/" target="_blank" rel="noopener"><strong>PSX-Place</strong>: Reference technical forum for the PS3 scene</a></li>
+        </ul>
+
+        <p class="footer-note"><em>Guide created for the PS3 OFW/CFW community. Have fun! By LvSs7...et vous...</em></p>
+      </div>
+    </section>
+
+    <footer class="site-footer">
+      <p>PS3 — PS2 Classics Guide — PS2 Classics Tutorial. Community document.</p>
+      <a href="#top" class="back-to-top">Back to top ↑</a>
+    </footer>
+  </main>
+
+  <button id="scrollTop" class="scroll-top" aria-label="Scroll back to top" title="Back to top">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+  </button>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+  <script src="../js/script.js"></script>
+</body>
+</html>
